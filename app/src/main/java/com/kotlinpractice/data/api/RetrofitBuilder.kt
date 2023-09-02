@@ -11,6 +11,5 @@ object RetrofitBuilder {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
-
     val apiService: ApiService = getRetrofit().create(ApiService::class.java)
 }
