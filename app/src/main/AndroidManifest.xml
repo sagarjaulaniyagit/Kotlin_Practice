@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".hilt_practice.data_classes.CarApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +16,15 @@
         android:theme="@style/Theme.KotlinPractice"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".composable_example.SimpleTextActivity"
+            android:exported="false"
+            android:label="@string/title_activity_simple_text"
+            android:theme="@style/Theme.KotlinPractice" />
+        <activity
+            android:name=".Test.SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Test.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +32,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".composable_example.MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.KotlinPractice" />
+        <activity
+            android:name=".kotlin_flow.presentation.MainActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".mvvm_practice_2.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".hilt_practice.activity.MainActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".hilt_practice.activity.HiltActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mvvm_practice_1.activity.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

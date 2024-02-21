@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Kotlin Practice</string>
+    <string name="inject_string">inject String</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_simple_text">SimpleTextActivity</string>
 </resources>
