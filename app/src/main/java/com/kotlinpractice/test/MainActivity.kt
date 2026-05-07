@@ -1,4 +1,4 @@
-package com.kotlinpractice.Test
+package com.kotlinpractice.test
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

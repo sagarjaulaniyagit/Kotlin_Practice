@@ -1,4 +1,4 @@
-package com.kotlinpractice.Test
+package com.kotlinpractice.test
 
 import android.content.Context
 import android.content.Intent

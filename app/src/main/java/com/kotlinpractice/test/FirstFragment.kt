@@ -1,4 +1,4 @@
-package com.kotlinpractice.Test
+package com.kotlinpractice.test
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
-import com.kotlinpractice.R
 import com.kotlinpractice.databinding.FragmentFirstBinding
 
 

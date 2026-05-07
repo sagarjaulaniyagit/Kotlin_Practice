@@ -1,7 +1,7 @@
-package com.kotlinpractice.hilt_practice.data_classes
+package com.kotlinpractice.application
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class CarApplication : Application()
+class MyApplication : Application()
