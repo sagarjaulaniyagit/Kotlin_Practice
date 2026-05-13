@@ -1,4 +1,4 @@
-package com.kotlinpractice.composable_example.ui.theme
+package com.kotlinpractice.composable_example.presentation.theme
 
 import android.app.Activity
 import android.os.Build

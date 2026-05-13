@@ -22,17 +22,20 @@
         <activity
             android:name=".test.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
         <activity
-            android:name=".composable_example.MainActivity"
-            android:exported="false"
+            android:name=".composable_example.presentation.MainActivity"
+            android:exported="true"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.KotlinPractice" />
+            android:theme="@style/Theme.KotlinPractice" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity
             android:name=".kotlin_flow.presentation.MainActivity"
             android:exported="true" />
