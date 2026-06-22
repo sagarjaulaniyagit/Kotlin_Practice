@@ -2,31 +2,47 @@ package com.kotlinpractice.composable_example.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kotlinpractice.composable_example.domain.GetUsersUseCase
+import com.kotlinpractice.composable_example.domain.model.User
+import com.kotlinpractice.composable_example.domain.repository.UserRepository
+import com.kotlinpractice.composable_example.domain.usecase.GetUsersUseCase
+import com.kotlinpractice.composable_example.domain.usecase.InsertUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModel @Inject constructor(private val getUsersUseCase: GetUsersUseCase) : ViewModel() {
-    private val _state = MutableStateFlow(UserUiState())
-    val state = _state.asStateFlow()
+class UserViewModel @Inject constructor(
+    private val getUsersUseCase: GetUsersUseCase,
+    private val insertUserUseCase: InsertUserUseCase,
+    private val repository: UserRepository
+) : ViewModel() {
+    val users = getUsersUseCase().stateIn(
+        viewModelScope,
+        SharingStarted.WhileSubscribed(5000), emptyList()
+    )
 
     init {
-        fetchUsers()
+        syncUsers()
     }
 
-    private fun fetchUsers() {
+    private fun syncUsers() {
         viewModelScope.launch {
-            _state.value = _state.value.copy(isLoading = true)
-            try {
-                val users = getUsersUseCase()
-                _state.value = UserUiState(users = users)
-            } catch (e: Exception) {
-                _state.value = UserUiState(error = e.message)
-            }
+            repository.syncUsers()
+        }
+    }
+
+    fun addUser(
+        name: String, email: String
+    ) {
+        viewModelScope.launch {
+            insertUserUseCase(
+                User(
+                    id = System.currentTimeMillis().toInt(),
+                    name = name, email = email
+                )
+            )
         }
     }
 }
