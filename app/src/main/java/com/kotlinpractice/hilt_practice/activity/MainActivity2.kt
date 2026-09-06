@@ -1,8 +1,8 @@
 package com.kotlinpractice.hilt_practice.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.kotlinpractice.databinding.ActivityMain2Binding
 
 class MainActivity2 : AppCompatActivity() {

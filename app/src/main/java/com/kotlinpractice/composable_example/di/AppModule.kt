@@ -26,11 +26,8 @@ object AppModule {
     fun provideDatabase(
         @ApplicationContext context: Context
     ): AppDatabase {
-
         return Room.databaseBuilder(
-            context,
-            AppDatabase::class.java,
-            "user_db"
+            context, AppDatabase::class.java, "user_db"
         ).build()
     }
 

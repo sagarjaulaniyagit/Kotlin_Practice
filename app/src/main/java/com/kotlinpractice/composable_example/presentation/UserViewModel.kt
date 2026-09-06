@@ -19,8 +19,7 @@ class UserViewModel @Inject constructor(
     private val repository: UserRepository
 ) : ViewModel() {
     val users = getUsersUseCase().stateIn(
-        viewModelScope,
-        SharingStarted.WhileSubscribed(5000), emptyList()
+        viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList()
     )
 
     init {
